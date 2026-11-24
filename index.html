@@ -316,6 +316,10 @@ div.pf-li{cursor:default}
 .pd-zone{flex:none;touch-action:none;cursor:grab;padding:16px 16px 16px}
 .pd-grabber{display:block;width:48px;height:4px;border-radius:2px;background:#E0E0E0;margin:0 auto 12px}
 .pd-peek{display:flex;align-items:center;justify-content:center;min-height:44px}
+/* v16: крестик в шапке открытой шторки, как в Figma (IconButton 52×40) */
+.pd-peek{position:relative}
+.pd-x{position:absolute;right:4px;top:50%;transform:translateY(-50%);width:52px;height:40px;border-radius:20px;border:0;padding:0;background:#F2F2F2;display:grid;place-items:center;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .2s}
+#s-pass.sheet-open .pd-x{opacity:1;pointer-events:auto}
 .pd-head{flex:1;min-width:0;align-self:stretch;border:0;background:none;padding:0;text-align:center;cursor:pointer;color:#121416}
 .pd-head b{display:block;font:600 16px/20px var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .pd-rows{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:0 0 16px}
@@ -513,7 +517,7 @@ div.pf-li{cursor:default}
     <div class="pd-zone" data-sheet-drag>
       <span class="pd-grabber" aria-hidden="true"></span>
       <div class="pd-peek">
-        <button type="button" class="pd-head" data-sheet-toggle aria-expanded="false" aria-controls="pd-rows"><b>Данные сотрудника</b></button>
+        <button type="button" class="pd-head" data-sheet-toggle aria-expanded="false" aria-controls="pd-rows"><b>Данные сотрудника</b></button><button type="button" class="pd-x" aria-label="Закрыть"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M16.2929 6.29295C16.6834 5.90243 17.3164 5.90243 17.707 6.29295C18.0975 6.68348 18.0975 7.31649 17.707 7.70702L13.414 12L17.707 16.293C18.0975 16.6835 18.0975 17.3165 17.707 17.707C17.3164 18.0975 16.6834 18.0975 16.2929 17.707L11.9999 13.414L7.70696 17.707C7.31643 18.0975 6.68342 18.0975 6.29289 17.707C5.90237 17.3165 5.90237 16.6835 6.29289 16.293L10.5859 12L6.29289 7.70702C5.90237 7.31649 5.90237 6.68348 6.29289 6.29295C6.68342 5.90243 7.31643 5.90243 7.70696 6.29295L11.9999 10.5859L16.2929 6.29295Z" fill="#353535"/></svg></button>
       </div>
     </div>
     <div class="pd-rows" id="pd-rows">
